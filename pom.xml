@@ -13,13 +13,6 @@
         <module>java-ipv6-neighbors-api</module>
     </modules>
 
-    <repositories>
-        <repository>
-            <id>nexus</id>
-            <url>https://nexus.vanlueck.dev/repository/maven-public/</url>
-        </repository>
-    </repositories>
-
     <dependencies>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
@@ -31,12 +24,11 @@
 
     <distributionManagement>
         <repository>
-            <id>github</id>
-            <name>GitHub Packages</name>
-            <url>https://maven.pkg.github.com/vanlueckn/java-ipv6-neighbors</url>
+            <id>nexus</id>
+            <name>vanlueck.dev nexus</name>
+            <url>https://nexus.vanlueck.dev/repository/maven-public/</url>
         </repository>
     </distributionManagement>
-
 
     <build>
         <plugins>
