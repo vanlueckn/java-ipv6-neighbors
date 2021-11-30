@@ -1,7 +1,8 @@
 package dev.vanlueck.ipv6.ndp.common.parser;
 
-import dev.vanlueck.ipv6.ndp.common.Neighbor;
-import dev.vanlueck.ipv6.ndp.common.exception.ParserException;
+import dev.vanlueck.ipv6.ndp.api.Neighbor;
+import dev.vanlueck.ipv6.ndp.api.exception.ParserException;
+import dev.vanlueck.ipv6.ndp.common.NeighborImpl;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -25,7 +26,7 @@ public class Linux implements Parser {
             if (splittedLine.length != 7)
                 throw new ParserException(ERROR_MESSAGE);
 
-            set.add(Neighbor.fromLinuxStringArray(splittedLine));
+            set.add(NeighborImpl.fromLinuxStringArray(splittedLine));
         }
 
         return set;

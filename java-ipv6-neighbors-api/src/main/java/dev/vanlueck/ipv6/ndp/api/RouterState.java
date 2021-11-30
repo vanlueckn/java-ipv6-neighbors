@@ -1,4 +1,4 @@
-package dev.vanlueck.ipv6.ndp.common;
+package dev.vanlueck.ipv6.ndp.api;
 
 public enum RouterState {
     INCOMPLETE,

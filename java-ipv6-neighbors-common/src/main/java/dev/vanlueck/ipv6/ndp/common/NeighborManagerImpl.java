@@ -1,7 +1,9 @@
 package dev.vanlueck.ipv6.ndp.common;
 
-import dev.vanlueck.ipv6.ndp.common.exception.ParserException;
-import dev.vanlueck.ipv6.ndp.common.exception.UnsupportedOSException;
+import dev.vanlueck.ipv6.ndp.api.Neighbor;
+import dev.vanlueck.ipv6.ndp.api.NeighborManager;
+import dev.vanlueck.ipv6.ndp.api.exception.ParserException;
+import dev.vanlueck.ipv6.ndp.api.exception.UnsupportedOSException;
 import dev.vanlueck.ipv6.ndp.common.parser.Linux;
 import dev.vanlueck.ipv6.ndp.common.parser.Parser;
 import dev.vanlueck.ipv6.ndp.common.parser.Windows;
@@ -14,7 +16,7 @@ import java.util.Set;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionException;
 
-public class NeighborManagerImpl {
+public class NeighborManagerImpl implements NeighborManager {
 
     private final Parser parser;
     private final String[] commands;
@@ -31,11 +33,13 @@ public class NeighborManagerImpl {
         }
     }
 
+    @Override
     public Set<Neighbor> getNeighbors() throws ParserException, IOException {
         String text = this.getText();
         return this.parser.parse(text);
     }
 
+    @Override
     public CompletableFuture<Set<Neighbor>> getNeighborsAsync() {
         return this.getTextAsync().thenCompose(s -> {
             try {

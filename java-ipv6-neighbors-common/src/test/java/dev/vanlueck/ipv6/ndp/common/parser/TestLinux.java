@@ -1,8 +1,8 @@
 package dev.vanlueck.ipv6.ndp.common.parser;
 
-import dev.vanlueck.ipv6.ndp.common.Neighbor;
-import dev.vanlueck.ipv6.ndp.common.RouterState;
-import dev.vanlueck.ipv6.ndp.common.exception.ParserException;
+import dev.vanlueck.ipv6.ndp.api.Neighbor;
+import dev.vanlueck.ipv6.ndp.api.RouterState;
+import dev.vanlueck.ipv6.ndp.api.exception.ParserException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

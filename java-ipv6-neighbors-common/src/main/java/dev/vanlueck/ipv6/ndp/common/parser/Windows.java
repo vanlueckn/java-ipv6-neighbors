@@ -1,7 +1,8 @@
 package dev.vanlueck.ipv6.ndp.common.parser;
 
-import dev.vanlueck.ipv6.ndp.common.Neighbor;
-import dev.vanlueck.ipv6.ndp.common.exception.ParserException;
+import dev.vanlueck.ipv6.ndp.api.Neighbor;
+import dev.vanlueck.ipv6.ndp.api.exception.ParserException;
+import dev.vanlueck.ipv6.ndp.common.NeighborImpl;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -39,7 +40,7 @@ public class Windows implements Parser {
 
             if (!"IPv6".equals(addressFamily)) continue;
 
-            set.add(Neighbor.fromWindowsHashMap(properties));
+            set.add(NeighborImpl.fromWindowsHashMap(properties));
         }
         return set;
     }

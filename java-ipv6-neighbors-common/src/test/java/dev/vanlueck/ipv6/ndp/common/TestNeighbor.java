@@ -1,5 +1,6 @@
 package dev.vanlueck.ipv6.ndp.common;
 
+import dev.vanlueck.ipv6.ndp.api.Neighbor;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -20,7 +21,7 @@ class TestNeighbor {
         testStrings.put("IPAddress", "ff0e::c");
         testStrings.put("LinkLayerAddress", "33-33-00-00-00-0C");
 
-        Neighbor neighbor = Neighbor.fromWindowsHashMap(testStrings);
+        Neighbor neighbor = NeighborImpl.fromWindowsHashMap(testStrings);
 
         Assertions.assertNotNull(neighbor);
         Assertions.assertEquals("ff0e::c", neighbor.getAddress());

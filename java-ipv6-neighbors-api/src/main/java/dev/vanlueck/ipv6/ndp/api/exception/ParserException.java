@@ -1,4 +1,4 @@
-package dev.vanlueck.ipv6.ndp.common.exception;
+package dev.vanlueck.ipv6.ndp.api.exception;
 
 public class ParserException extends Exception {
     public ParserException(String errorMessage) {
