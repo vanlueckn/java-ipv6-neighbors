@@ -26,7 +26,7 @@
         <repository>
             <id>nexus</id>
             <name>vanlueck.dev nexus</name>
-            <url>https://nexus.vanlueck.dev/repository/maven-public/</url>
+            <url>https://nexus.vanlueck.dev/repository/maven-snapshots/</url>
         </repository>
     </distributionManagement>
 
