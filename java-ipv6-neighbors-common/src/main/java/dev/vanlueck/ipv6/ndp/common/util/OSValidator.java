@@ -11,6 +11,14 @@ public class OSValidator {
         return OS.contains("win");
     }
 
+    public static boolean isMac() {
+        return OS.contains("mac");
+    }
+
+    public static boolean isBsd() {
+        return OS.contains("bsd");
+    }
+
     public static boolean isUnix() {
         return (OS.contains("nix") || OS.contains("nux") || OS.contains("aix"));
     }

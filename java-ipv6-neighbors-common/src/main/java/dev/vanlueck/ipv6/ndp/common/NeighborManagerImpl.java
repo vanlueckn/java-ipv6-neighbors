@@ -4,6 +4,7 @@ import dev.vanlueck.ipv6.ndp.api.Neighbor;
 import dev.vanlueck.ipv6.ndp.api.NeighborManager;
 import dev.vanlueck.ipv6.ndp.api.exception.ParserException;
 import dev.vanlueck.ipv6.ndp.api.exception.UnsupportedOSException;
+import dev.vanlueck.ipv6.ndp.common.parser.Bsd;
 import dev.vanlueck.ipv6.ndp.common.parser.Linux;
 import dev.vanlueck.ipv6.ndp.common.parser.Parser;
 import dev.vanlueck.ipv6.ndp.common.parser.Windows;
@@ -28,6 +29,9 @@ public class NeighborManagerImpl implements NeighborManager {
         } else if (OSValidator.isUnix()) {
             this.parser = new Linux();
             this.commands = new String[]{"ip", "-6", "neigh"};
+        } else if (OSValidator.isMac() || OSValidator.isBsd()) {
+            this.parser = new Bsd();
+            this.commands = new String[]{"ndp", "-a"};
         } else {
             throw new UnsupportedOSException("OS not supported");
         }

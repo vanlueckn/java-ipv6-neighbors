@@ -35,6 +35,17 @@ public class NeighborImpl implements Neighbor {
         return neighbor;
     }
 
+    public static Neighbor fromBsdStringArray(String[] stringArray) {
+        Neighbor neighbor = new NeighborImpl();
+
+        neighbor.setAddress(stringArray[0]);
+        neighbor.setLladdr(stringArray[1]);
+        neighbor.setDevice(stringArray[2]);
+        neighbor.setState(RouterState.fromBsdString(stringArray[4]));
+
+        return neighbor;
+    }
+
 
     @Override
     public String getAddress() {

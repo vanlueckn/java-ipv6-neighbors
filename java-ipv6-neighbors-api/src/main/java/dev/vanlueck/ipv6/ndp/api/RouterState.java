@@ -18,4 +18,15 @@ public enum RouterState {
             default -> RouterState.UNDEFINED;
         };
     }
+
+    public static RouterState fromBsdString(String string) {
+        return switch (string) {
+            case "I" -> RouterState.INCOMPLETE;
+            case "R" -> RouterState.REACHABLE;
+            case "S" -> RouterState.STALE;
+            case "D" -> RouterState.DELAY;
+            case "P" -> RouterState.PROBE;
+            default -> RouterState.UNDEFINED;
+        };
+    }
 }
