@@ -23,6 +23,7 @@
 hs_err_pid*
 
 # IntelliJ / Maven
+*.iml
 .idea/
 target/
 pom.xml.tag
