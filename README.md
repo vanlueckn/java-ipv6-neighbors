@@ -4,7 +4,7 @@ Java IPv6 Neighbors ![Neighbors Build Status](https://github.com/vanlueckn/java-
 ![Neighbors License](https://img.shields.io/github/license/vanlueckn/java-ipv6-neighbors)
 ===========
 
-Simple and leightweight library for getting IPv6 neighbours on linux and windows.
+Simple and leightweight library for getting IPv6 neighbours on linux and windows. Provides an interface with sync and async methods.
 
 How To Use (Maven)
 ------
