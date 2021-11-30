@@ -1,5 +1,10 @@
-# java-ipv6-neighbors
-Leightweight library to get access to the via ntp announced ipv6 neighbors.
+Java IPv6 Neighbors ![Neighbors Build Status](https://github.com/vanlueckn/java-ipv6-neighbors/actions/workflows/maven-publish.yml/badge.svg)
+![Neighbors Forks](https://img.shields.io/github/forks/vanlueckn/java-ipv6-neighbors)
+![Neighbors Starts](https://img.shields.io/github/stars/vanlueckn/java-ipv6-neighbors)
+![Neighbors License](https://img.shields.io/github/license/vanlueckn/java-ipv6-neighbors)
+===========
+
+Simple and leightweight library for getting Ipv6 neighbours on linux and windows.
 
 How To Use (Maven)
 ------
