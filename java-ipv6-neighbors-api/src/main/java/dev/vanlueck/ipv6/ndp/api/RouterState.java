@@ -9,27 +9,13 @@ public enum RouterState {
     UNDEFINED;
 
     public static RouterState fromString(String string) {
-        RouterState routerState;
-        switch (string) {
-            case "INCOMPLETE":
-                routerState = RouterState.INCOMPLETE;
-                break;
-            case "REACHABLE":
-                routerState = RouterState.REACHABLE;
-                break;
-            case "STALE":
-                routerState = RouterState.STALE;
-                break;
-            case "DELAY":
-                routerState = RouterState.DELAY;
-                break;
-            case "PROBE":
-                routerState = RouterState.PROBE;
-                break;
-            default:
-                routerState = RouterState.UNDEFINED;
-        }
-
-        return routerState;
+        return switch (string) {
+            case "INCOMPLETE" -> RouterState.INCOMPLETE;
+            case "REACHABLE" -> RouterState.REACHABLE;
+            case "STALE" -> RouterState.STALE;
+            case "DELAY" -> RouterState.DELAY;
+            case "PROBE" -> RouterState.PROBE;
+            default -> RouterState.UNDEFINED;
+        };
     }
 }

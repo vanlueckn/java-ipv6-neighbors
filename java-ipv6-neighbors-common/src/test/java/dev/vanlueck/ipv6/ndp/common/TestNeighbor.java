@@ -4,6 +4,7 @@ import dev.vanlueck.ipv6.ndp.api.Neighbor;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Timeout;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -12,6 +13,7 @@ class TestNeighbor {
 
     @Test
     @DisplayName("Test fromWindowsHashmap")
+    @Timeout(value = 10)
     void testFromWindowsHashmap() {
         Map<String, String> testStrings = new HashMap<>();
 

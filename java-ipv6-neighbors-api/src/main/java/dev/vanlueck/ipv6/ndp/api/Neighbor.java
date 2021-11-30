@@ -1,7 +1,5 @@
 package dev.vanlueck.ipv6.ndp.api;
 
-import java.util.Map;
-
 public interface Neighbor {
 
     String getAddress();

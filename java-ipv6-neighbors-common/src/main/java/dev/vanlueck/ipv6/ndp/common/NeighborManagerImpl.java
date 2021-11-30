@@ -72,11 +72,14 @@ public class NeighborManagerImpl implements NeighborManager {
 
         StringBuilder text = new StringBuilder();
         String s;
-        while ((s = stdInput.readLine()) != null) {
-            text.append("\\n").append(s);
+        while (stdInput.lines().iterator().hasNext()) {
+            s = stdInput.lines().iterator().next();
+            if (s.trim().isEmpty()) continue;
+
+            text.append(System.getProperty("line.separator")).append(s);
         }
 
-        if (stdError.readLine() != null) {
+        if (stdError.lines().findAny().isPresent()) {
             throw new ParserException("Cannot parse console string");
         }
 

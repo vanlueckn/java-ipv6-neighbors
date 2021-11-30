@@ -7,6 +7,7 @@ import dev.vanlueck.ipv6.ndp.api.exception.UnsupportedOSException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Timeout;
 
 import java.io.IOException;
 import java.util.Set;
@@ -15,6 +16,7 @@ class TestNeighborManager {
 
     @Test
     @DisplayName("Test Neighbor Manager implementation sync")
+    @Timeout(value = 10)
     void testNeighborManagerSync() {
         try {
             NeighborManager neighborManager = new NeighborManagerImpl();
@@ -27,6 +29,7 @@ class TestNeighborManager {
 
     @Test
     @DisplayName("Test Neighbor Manager implementation async")
+    @Timeout(value = 10)
     void testNeighborManagerAsync() {
         try {
             NeighborManager neighborManager = new NeighborManagerImpl();

@@ -5,13 +5,16 @@ import dev.vanlueck.ipv6.ndp.api.exception.ParserException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Timeout;
 
 import java.io.IOException;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 class TestWindows {
     @Test
     @DisplayName("Test Windows Parser")
+    @Timeout(value = 10)
     void testParse() {
         String testText = """
                     State                      : Permanent
@@ -49,13 +52,53 @@ class TestWindows {
                     OtherInfoFormatDescription :
                     InterfaceAlias             : Loopback Pseudo-Interface 1
                     InterfaceIndex             : 1
-                    IPAddress                  : ff02::2
+                    IPAddress                  : ff02::4
                     LinkLayerAddress           :
                     PSComputerName             :
                     CimClass                   : ROOT/StandardCimv2:MSFT_NetNeighbor
                     CimInstanceProperties      : {Caption, Description, ElementName, InstanceID...}
                     CimSystemProperties        : Microsoft.Management.Infrastructure.CimSystemProperties
-                    
+                    State                      : Permanent
+                    Store                      : ActiveStore
+                    AddressFamily              : IPv6
+                    ifIndex                    : 1
+                    Caption                    :
+                    Description                :
+                    ElementName                :
+                    InstanceID                 :
+                    CommunicationStatus        :
+                    DetailedStatus             :
+                    HealthState                :
+                    InstallDate                :
+                    Name                       : pp:<DD<55;55;
+                    OperatingStatus            :
+                    OperationalStatus          :
+                    PrimaryStatus              :
+                    Status                     :
+                    StatusDescriptions         :
+                    AvailableRequestedStates   :
+                    EnabledDefault             : 2
+                    EnabledState               : 5
+                    OtherEnabledState          :
+                    RequestedState             : 12
+                    TimeOfLastStateChange      :
+                    TransitioningToState       : 12
+                    CreationClassName          :
+                    SystemCreationClassName    :
+                    SystemName                 :
+                    AccessContext              : 0
+                    AccessInfo                 :
+                    InfoFormat                 :
+                    OtherAccessContext         :
+                    OtherInfoFormatDescription :
+                    InterfaceAlias             : Loopback Pseudo-Interface 2
+                    InterfaceIndex             : 1
+                    IPAddress                  : ff02::5
+                    LinkLayerAddress           :
+                    PSComputerName             :
+                    CimClass                   : ROOT/StandardCimv2:MSFT_NetNeighbor
+                    CimInstanceProperties      : {Caption, Description, ElementName, InstanceID...}
+                    CimSystemProperties        : Microsoft.Management.Infrastructure.CimSystemProperties
                     State                      : Permanent
                     Store                      : ActiveStore
                     AddressFamily              : IPv4
@@ -97,7 +140,6 @@ class TestWindows {
                     CimClass                   : ROOT/StandardCimv2:MSFT_NetNeighbor
                     CimInstanceProperties      : {Caption, Description, ElementName, InstanceID...}
                     CimSystemProperties        : Microsoft.Management.Infrastructure.CimSystemProperties
-                    
                     State                      : Permanent
                     Store                      : ActiveStore
                     AddressFamily              : IPv4
@@ -139,7 +181,6 @@ class TestWindows {
                     CimClass                   : ROOT/StandardCimv2:MSFT_NetNeighbor
                     CimInstanceProperties      : {Caption, Description, ElementName, InstanceID...}
                     CimSystemProperties        : Microsoft.Management.Infrastructure.CimSystemProperties
-                    
                     State                      : Permanent
                     Store                      : ActiveStore
                     AddressFamily              : IPv4
@@ -177,48 +218,6 @@ class TestWindows {
                     InterfaceIndex             : 22
                     IPAddress                  : 224.0.0.251
                     LinkLayerAddress           : 01-00-5E-00-00-FB
-                    PSComputerName             :
-                    CimClass                   : ROOT/StandardCimv2:MSFT_NetNeighbor
-                    CimInstanceProperties      : {Caption, Description, ElementName, InstanceID...}
-                    CimSystemProperties        : Microsoft.Management.Infrastructure.CimSystemProperties
-                    
-                    State                      : Permanent
-                    Store                      : ActiveStore
-                    AddressFamily              : IPv6
-                    ifIndex                    : 1
-                    Caption                    :
-                    Description                :
-                    ElementName                :
-                    InstanceID                 :
-                    CommunicationStatus        :
-                    DetailedStatus             :
-                    HealthState                :
-                    InstallDate                :
-                    Name                       : pp:<DD<55;55;
-                    OperatingStatus            :
-                    OperationalStatus          :
-                    PrimaryStatus              :
-                    Status                     :
-                    StatusDescriptions         :
-                    AvailableRequestedStates   :
-                    EnabledDefault             : 2
-                    EnabledState               : 5
-                    OtherEnabledState          :
-                    RequestedState             : 12
-                    TimeOfLastStateChange      :
-                    TransitioningToState       : 12
-                    CreationClassName          :
-                    SystemCreationClassName    :
-                    SystemName                 :
-                    AccessContext              : 0
-                    AccessInfo                 :
-                    InfoFormat                 :
-                    OtherAccessContext         :
-                    OtherInfoFormatDescription :
-                    InterfaceAlias             : Loopback Pseudo-Interface 1
-                    InterfaceIndex             : 1
-                    IPAddress                  : ff02::2
-                    LinkLayerAddress           :
                     PSComputerName             :
                     CimClass                   : ROOT/StandardCimv2:MSFT_NetNeighbor
                     CimInstanceProperties      : {Caption, Description, ElementName, InstanceID...}

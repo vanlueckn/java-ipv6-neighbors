@@ -7,41 +7,52 @@ import dev.vanlueck.ipv6.ndp.common.NeighborImpl;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.StringReader;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class Windows implements Parser {
 
     @Override
     public Set<Neighbor> parse(String text) throws IOException, ParserException {
-        if (text == null) throw new ParserException(ERROR_MESSAGE);
+        if (text == null) throw new ParserException(ERROR_MESSAGE + "A");
         Set<Neighbor> set = new HashSet<>();
+        Set<List<String>> blocks = new HashSet<>();
 
-        String[] neighborBlocks = text.split("\\n\\n");
-        for (String neighborBlock : neighborBlocks) {
-            BufferedReader bufReader = new BufferedReader(new StringReader(neighborBlock));
-            String line;
+        BufferedReader bufReaderBlock = new BufferedReader(new StringReader(text));
+        String blockLine;
+        List<String> currentBlock = new ArrayList<>();
+        boolean first = true;
+
+        while ((blockLine = bufReaderBlock.readLine()) != null) {
+            if (blockLine.trim().startsWith("State") && !first) {
+                blocks.add(List.copyOf(currentBlock));
+
+                currentBlock.clear();
+            }
+
+            currentBlock.add(blockLine.trim());
+            first = false;
+        }
+
+        blocks.forEach(neighborBlock -> {
             Map<String, String> properties = new HashMap<>();
-            while ((line = bufReader.readLine()) != null) {
+            neighborBlock.forEach(line -> {
+
                 String[] splittedLine = line.split(":", 2);
                 if (splittedLine.length != 2)
-                    throw new ParserException(ERROR_MESSAGE);
+                    return;
 
                 String firstPart = splittedLine[0].trim();
                 String secondPart = splittedLine[1].trim();
 
                 properties.put(firstPart, secondPart);
-            }
+            });
 
             String addressFamily = properties.get("AddressFamily");
-            if (addressFamily == null) throw new ParserException(ERROR_MESSAGE);
-
-            if (!"IPv6".equals(addressFamily)) continue;
+            if (!"IPv6".equals(addressFamily)) return;
 
             set.add(NeighborImpl.fromWindowsHashMap(properties));
-        }
+        });
+
         return set;
     }
 }
