@@ -20,6 +20,17 @@ public class Neighbor {
         return neighbor;
     }
 
+    public static Neighbor fromLinuxStringArray(String[] stringArray) {
+        Neighbor neighbor = new Neighbor();
+
+        neighbor.setAddress(stringArray[0]);
+        neighbor.setDevice(stringArray[2]);
+        neighbor.setLladdr(stringArray[4]);
+        neighbor.setState(RouterState.fromString(stringArray[6]));
+
+        return neighbor;
+    }
+
     public String getAddress() {
         return address;
     }

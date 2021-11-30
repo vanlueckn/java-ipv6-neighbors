@@ -226,7 +226,8 @@ class TestWindows {
                 """;
 
         try {
-            Set<Neighbor> neighbors = Windows.parse(testText);
+            Parser parser = new Windows();
+            Set<Neighbor> neighbors = parser.parse(testText);
             Assertions.assertNotNull(neighbors);
             Assertions.assertEquals(2, neighbors.size());
             Neighbor neighbor = neighbors.iterator().next();

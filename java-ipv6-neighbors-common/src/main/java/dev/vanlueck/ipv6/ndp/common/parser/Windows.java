@@ -11,14 +11,10 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-public class Windows {
+public class Windows implements Parser {
 
-    private Windows() {
-    }
-
-    private static final String ERROR_MESSAGE = "String could not be parsed";
-
-    public static Set<Neighbor> parse(String text) throws IOException, ParserException {
+    @Override
+    public Set<Neighbor> parse(String text) throws IOException, ParserException {
         if (text == null) throw new ParserException(ERROR_MESSAGE);
         Set<Neighbor> set = new HashSet<>();
 
