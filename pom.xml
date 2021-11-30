@@ -13,6 +13,13 @@
         <module>java-ipv6-neighbors-api</module>
     </modules>
 
+    <repositories>
+        <repository>
+            <id>nexus</id>
+            <url>https://nexus.vanlueck.dev/repository/maven-public/</url>
+        </repository>
+    </repositories>
+
     <dependencies>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
