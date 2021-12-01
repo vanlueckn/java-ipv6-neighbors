@@ -6,7 +6,7 @@ Java IPv6 Neighbors ![Neighbors Build Status](https://github.com/vanlueckn/java-
 
 Simple and leightweight library for getting IPv6 neighbours on linux, openbsd, mac and windows. Provides an interface with sync and async methods.
 
-How To Use (Maven)
+Maven
 ------
 ```xml
 <repository>
@@ -14,7 +14,7 @@ How To Use (Maven)
     <url>https://nexux.vanlueck.dev/repository/maven-public/</url>
 </repository>
 ```
- * Artifact Information:
+ * Artifact Information (API):
 ```xml
 <dependency>
     <groupId>dev.vanlueck</groupId>
@@ -22,3 +22,13 @@ How To Use (Maven)
     <version>1.0-SNAPSHOT</version>
 </dependency>
  ```
+ * Artifact Information (Common):
+```xml
+<dependency>
+    <groupId>dev.vanlueck</groupId>
+    <artifactId>java-ipv6-neighbors-common</artifactId>
+    <version>1.0-SNAPSHOT</version>
+</dependency>
+ ```
+
+ 
