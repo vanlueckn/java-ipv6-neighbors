@@ -41,4 +41,19 @@ class TestNeighborManager {
             Assertions.fail(e);
         }
     }
+
+    @Test
+    @DisplayName("Test Neighbor Manager device filter")
+    @Timeout(value = 10)
+    void testNeighborManagerAsyncDeviceFilter() {
+        try {
+            NeighborManager neighborManager = new NeighborManagerImpl();
+            neighborManager.filterDevice("testdevice").whenComplete((neighbors, throwable) -> {
+                if (throwable != null) Assertions.fail(throwable);
+                Assertions.assertNotNull(neighbors);
+            });
+        } catch (UnsupportedOSException e) {
+            Assertions.fail(e);
+        }
+    }
 }
