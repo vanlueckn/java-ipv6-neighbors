@@ -13,6 +13,8 @@ import dev.vanlueck.ipv6.ndp.common.util.OSValidator;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionException;
@@ -52,6 +54,11 @@ public class NeighborManagerImpl implements NeighborManager {
                 return CompletableFuture.failedFuture(e);
             }
         });
+    }
+
+    @Override
+    public CompletableFuture<List<Neighbor>> filterDevice(String device) {
+        return this.getNeighborsAsync().thenApply(neighbors -> neighbors.stream().filter(neighbor -> Objects.equals(neighbor.getDevice(), device)).toList());
     }
 
     private CompletableFuture<String> getTextAsync() {
